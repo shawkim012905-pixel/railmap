@@ -7,6 +7,7 @@ import ReactFlow, {
   MiniMap,
   Node,
   Edge,
+  MarkerType,
   useReactFlow,
   ReactFlowProvider,
 } from 'reactflow';
@@ -34,7 +35,6 @@ function DiagramInner({ isDark }: { isDark: boolean }) {
         color={isDark ? '#1e293b' : '#f9fafb'} 
         gap={24}
         size={1}
-        variant="dots"
       />
       <Controls
         showInteractive={false}
@@ -131,7 +131,7 @@ export default function RouteDiagram({ scenario, simpleMode = false, simplifyLab
           strokeWidth: 3,
         },
         markerEnd: {
-          type: 'arrowclosed',
+          type: MarkerType.ArrowClosed,
           color: edgeColor,
         },
       }));

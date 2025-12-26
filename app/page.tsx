@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, Suspense } from 'react';
 import { createPortal } from 'react-dom';
 import { useSearchParams, useRouter } from 'next/navigation';
 import RouteDiagram from './components/RouteDiagram';
@@ -205,7 +205,7 @@ function ScenarioDropdown({
   );
 }
 
-export default function Explorer() {
+function ExplorerInner() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -1044,5 +1044,13 @@ export default function Explorer() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function Explorer() {
+  return (
+    <Suspense fallback={<div className="h-24 animate-pulse rounded-2xl bg-slate-100 dark:bg-slate-900/40" />}>
+      <ExplorerInner />
+    </Suspense>
   );
 }
