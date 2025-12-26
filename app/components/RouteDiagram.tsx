@@ -31,11 +31,7 @@ function DiagramInner({ isDark }: { isDark: boolean }) {
 
   return (
     <>
-      <Background 
-        color={isDark ? '#1e293b' : '#f9fafb'} 
-        gap={24}
-        size={1}
-      />
+      <Background gap={24} size={1} />
       <Controls
         showInteractive={false}
         className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-md"
